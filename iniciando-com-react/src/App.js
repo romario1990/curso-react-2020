@@ -30,6 +30,27 @@ class App extends React.Component {
     )
   }
 
+  //Chamado depois de ocorre algum erro não tratado
+  componentDidCatch() {
+    console.log('Executou componentDidCatch');
+  }
+
+  //Chamado depois que o componente é montado
+  componentDidMount() {
+    console.log('Executou componentDidMount');
+  }
+
+  //Chamado depois de ocorre alguma atualização. Exemplo: this.state.nome
+  componentDidUpdate() {
+    console.log('Executou componentDidUpdate');
+  }
+
+  //Chamado depois que o componenete é desmontado
+  componentWillUnmount() {
+    console.log('Executou componentWillUnmount');
+  }
+  //...
+
   //A class precisa do render para retornar o componente
   render(){
     //Variável que recebe a função para ser utilizada como tag
