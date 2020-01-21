@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Home from './views/home';
 import NavBar from './components/navbar';
+import Rotas from './rotas';
 
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <>
       <div className="container">
         <NavBar />
-        <Home />
+        <Rotas />
       </div>
     </>
   );
