@@ -2,6 +2,8 @@ import React from 'react';
 
 class App extends React.Component {
 
+  //props guarda os dados que foram repassados na criação do componenete. Dados são staticos e não são alterados
+
   //Declaração de variáveis
   state = {
     nome: "",
@@ -37,7 +39,8 @@ class App extends React.Component {
     return (
       <>
         <input type="text" value={this.state.nome} onChange={this.modificarNome} />
-        <h1>Hello {this.state.nome}</h1>
+        <h1>Variável state: {this.state.nome}</h1>
+        <h1>Variável recuperada da props: {this.props.nome} sua idade é {this.props.idade}</h1>
         <MeuComboBox />
       </>
     )
