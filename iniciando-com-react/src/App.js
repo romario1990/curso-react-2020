@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  //Declaração de variáveis
+  state = {
+    nome: "",
+  }
+
+  //Funções com Arrow functions não precisa ser declarada no construtor = () =>
+  modificarNome = (event) => {
+    this.setState({
+      nome: event.target.value,
+    });
+  }
+
+  criaComboBox = () => {
+    const opcoes = ['Fulano', 'ciclano'];
+    //Map percorre a lista trocando os valores da variável opcao
+    const comboBoxOpcoes = opcoes.map(opcao => <option> {opcao}</option>);
+
+    //Retorna a tag não pode retornar mais de uma tag, para isto deve ser adicionado 
+    //um retorno entre as tag do <React.fragment> </React.fragment> ou as tags <> </>
+    return (
+      <select>
+        {comboBoxOpcoes}
+      </select>
+    )
+  }
+
+  //A class precisa do render para retornar o componente
+  render(){
+    //Variável que recebe a função para ser utilizada como tag
+    const MeuComboBox = () => this.criaComboBox();
+
+    //retornar
+    return (
+      <>
+        <input type="text" value={this.state.nome} onChange={this.modificarNome} />
+        <h1>Hello {this.state.nome}</h1>
+        <MeuComboBox />
+      </>
+    )
+  }
+
 }
 
+//As functions ou class sempre devem ser exportadas para serem renderizadas
 export default App;
