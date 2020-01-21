@@ -1,22 +1,16 @@
 import React from 'react';
 
-class App extends React.Component {
+function App (props) {
 
   //props guarda os dados que foram repassados na criação do componenete. Dados são staticos e não são alterados
 
-  //Declaração de variáveis
-  state = {
-    nome: "",
-  }
 
   //Funções com Arrow functions não precisa ser declarada no construtor = () =>
-  modificarNome = (event) => {
-    this.setState({
-      nome: event.target.value,
-    });
+  const modificarNome = event => {
+    console.log(event.target.value)
   }
 
-  criaComboBox = () => {
+  const criaComboBox = () => {
     const opcoes = ['Fulano', 'ciclano'];
     //Map percorre a lista trocando os valores da variável opcao
     const comboBoxOpcoes = opcoes.map(opcao => <option> {opcao}</option>);
@@ -30,42 +24,16 @@ class App extends React.Component {
     )
   }
 
-  //Chamado depois de ocorre algum erro não tratado
-  componentDidCatch() {
-    console.log('Executou componentDidCatch');
-  }
+  const MeuComboBox = () => criaComboBox();
 
-  //Chamado depois que o componente é montado
-  componentDidMount() {
-    console.log('Executou componentDidMount');
-  }
-
-  //Chamado depois de ocorre alguma atualização. Exemplo: this.state.nome
-  componentDidUpdate() {
-    console.log('Executou componentDidUpdate');
-  }
-
-  //Chamado depois que o componenete é desmontado
-  componentWillUnmount() {
-    console.log('Executou componentWillUnmount');
-  }
-  //...
-
-  //A class precisa do render para retornar o componente
-  render(){
-    //Variável que recebe a função para ser utilizada como tag
-    const MeuComboBox = () => this.criaComboBox();
-
-    //retornar
-    return (
-      <>
-        <input type="text" value={this.state.nome} onChange={this.modificarNome} />
-        <h1>Variável state: {this.state.nome}</h1>
-        <h1>Variável recuperada da props: {this.props.nome} sua idade é {this.props.idade}</h1>
-        <MeuComboBox />
-      </>
-    )
-  }
+  return (
+    <>
+      <input type="text" value={props.nome} onChange={modificarNome} />
+      <h1>Variável state: {props.nome}</h1>
+      <h1>Variável recuperada da props: {props.nome} sua idade é {props.idade}</h1>
+      <MeuComboBox />
+    </>
+  )
 
 }
 
