@@ -9,7 +9,7 @@ function Home() {
             </p>
             <hr className="my-4" />
             <p className="lead">
-                <a className="btn btn-primary btn-lg" href="#" role="button">Cadastrar</a>
+                <a className="btn btn-primary btn-lg" href="http://localhost:3000/#/cadastro-produtos" role="button">Cadastrar</a>
             </p>
         </div>
     )

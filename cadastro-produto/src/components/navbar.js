@@ -17,7 +17,7 @@ function NavBar() {
                     <a className="nav-link" href="http://localhost:3000/#/cadastro-produtos">Cadastro</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="http://localhost:3000/#/consulta">Consulta</a>
+                    <a className="nav-link" href="http://localhost:3000/#/consulta-produtos">Consulta</a>
                 </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
