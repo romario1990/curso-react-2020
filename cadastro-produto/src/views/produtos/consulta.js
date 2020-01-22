@@ -2,6 +2,8 @@ import React from 'react';
 
 import ProdutoService from '../../app/produtoService';
 import { withRouter } from 'react-router-dom';
+import Card from '../../components/card';
+import ProdutosTable from './produtosTable';
 
 class ConsultaProdutos extends React.Component {
 
@@ -19,57 +21,23 @@ class ConsultaProdutos extends React.Component {
         this.setState({ produtos });
     }
 
-    preparaEditar = (sku) => {
+    editarAction = (sku) => {
         console.log(sku);
         this.props.history.push(`/cadastro-produtos/${sku}`);
     }
 
-    deletar = (sku) => {
+    deletarAction = (sku) => {
         const produtos = this.service.deletar(sku);
         this.setState({ produtos })
     }
 
     render(){
         return (
-            <div className="card">
-                <div className="card-header">
-                    Consulta Produtos
-                </div>
-                <div className='card-body'>
-                    <table className="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>SKU</th>
-                                <th>Preço</th>
-                                <th>Fornecedor</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                this.state.produtos && (
-                                    this.state.produtos.map( (produto, index) => {
-                                    return  (
-                                        <tr key={index}>
-                                            <th>{produto.nome}</th>
-                                            <th>{produto.sku}</th>
-                                            <th>{produto.preco}</th>
-                                            <th>{produto.fornecedor}</th>
-                                            <th> 
-                                                <button onClick={ () => this.preparaEditar(produto.sku)} className="btn btn-primary">Editar</button>
-                                                <button onClick={ () => this.deletar(produto.sku)} className="btn btn-danger">Remover</button>
-                                            </th>
-                                        </tr>
-
-                                    )
-                                    })
-                                )
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+            <Card header="Consulta Produtos">
+                <ProdutosTable  produtos={this.state.produtos}
+                                editarAction={this.editarAction} 
+                                deletarAction={this.deletarAction}/>
+            </Card>
         )
     }
 }
