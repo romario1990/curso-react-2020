@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function App() {
 
@@ -10,15 +10,8 @@ function App() {
     const numero1 = parseInt(x)
     const numero2 = parseInt(y)
     setR(numero1+numero2)
-  } 
+  }
   
-  //primeiro parâmetro será executado
-  //segundo parâmetro se passado vazio executa uma vez, se passar uma variavel quando ele for alterada será chamado e sem o
-  //segundo parâmetro qualquer variável alterada será chamdo o evento.
-  useEffect(() => {
-    console.log('variável número', x)
-  }, [])
-
   return (
     <div className="App">
       Número 1: <br />
