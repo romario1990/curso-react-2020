@@ -76,9 +76,10 @@ const TarefasToolbar = props => {
               <InputLabel>Categoria: </InputLabel>
               <Select value={categoria} onChange={e => setCategoria(e.target.value)}>
                 <MenuItem value="">Selecione...</MenuItem>
-                <MenuItem value={"Trabalho"}>Trabalho</MenuItem>
-                <MenuItem value={"Estudo"}>Estudo</MenuItem>
-                <MenuItem value={"Outros"}>Outros</MenuItem>
+                <MenuItem value={"TRABALHO"}>Trabalho</MenuItem>
+                <MenuItem value={"ESTUDOS"}>Estudos</MenuItem>
+                <MenuItem value={"PESSOAL"}>Pessoal</MenuItem>
+                <MenuItem value={"OUTROS"}>Outros</MenuItem>
               </Select>
             </FormControl>
           </Grid>
